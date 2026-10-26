@@ -1,24 +1,28 @@
-# Citadel Sparkle Waves
+# Coastline Citadel Group website
 
-want to redesign this website: https://ccitadelgroup.com/html/index.html
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/4d94f719-e99a-41bc-8d9a-bcf7e0e8a82d).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitLab and your changes sync back into Lovable, ready for your next prompt.
+The Coastline Citadel Group consulting website, built with React, TanStack Start, Vite and Tailwind CSS.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You need Node.js and npm ([install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)).
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+npm install
+npm run dev      # http://localhost:8080
 ```
+
+Other scripts:
+
+- `npm test` runs the test suite.
+- `npm run lint` checks code style; `npm run format` fixes formatting.
+- `npm run build` creates a production build in `.output/`.
+- `npm run preview` serves the production build locally.
+
+`./run.sh [dev|build|test|lint]` installs dependencies if needed and runs the matching script.
+
+## Deployment
+
+`npm run build` uses [Nitro](https://nitro.build) to package the site for its host. On Vercel, Netlify and
+Cloudflare the host is detected automatically; elsewhere the build is a Node server started with
+`node .output/server/index.mjs`. To target a specific host, set `NITRO_PRESET` (for example
+`NITRO_PRESET=cloudflare-module`) when building.
