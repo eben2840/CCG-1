@@ -1,0 +1,7 @@
+import { Search, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import coastalCity from '@/assets/coastal-city.jpg';
+import team from '@/assets/consulting-team.jpg';
+export function PageCover({label,title,description,people=false,children}:{label:string;title:string;description:string;people?:boolean;children?:React.ReactNode}) {return <section className="page-cover"><img src={people?team:coastalCity} width={people?1536:1920} height={1024} alt={people?'Consultants collaborating around a table':'Modern coastal business district'} className="page-cover-image" fetchPriority="high"/><div className="site-container page-cover-content fade-in"><p className="eyebrow"><span className="eyebrow-dot"/>{label}</p><h1>{title}</h1><p>{description}</p>{children}</div></section>;}
+export function SearchField({value,onChange,label}:{value:string;onChange:(value:string)=>void;label:string}) {return <div className="search-field"><Search size={17}/><input aria-label={label} placeholder={label} value={value} onChange={e=>onChange(e.target.value)}/>{value&&<Button variant="ghost" size="icon" aria-label="Clear search" onClick={()=>onChange('')}><X/></Button>}</div>;}
+export function FilterTabs({options,value,onChange}:{options:string[];value:string;onChange:(value:string)=>void}) {return <div className="filter-tabs" aria-label="Categories">{options.map(option=><Button key={option} variant="ghost" className="filter-tab" aria-pressed={value===option} onClick={()=>onChange(option)}>{option}</Button>)}</div>;}
